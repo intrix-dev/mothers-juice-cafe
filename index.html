@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Mother's Juice Cafe — Healthy. Fresh. Local. Organic. | Bend, Oregon</title>
+  <meta name="description" content="Locally owned organic juice bar and cafe in Bend, Oregon since 1999. Cold-pressed juices, smoothies, breakfast & lunch at two locations. Order on DoorDash.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Young Serif"', 'Georgia', 'serif'],
+            body: ['Figtree', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            sage: {
+              50: 'oklch(96% 0.02 145)',
+              100: 'oklch(92% 0.03 145)',
+              200: 'oklch(85% 0.04 145)',
+              300: 'oklch(75% 0.06 145)',
+              400: 'oklch(60% 0.07 145)',
+              500: 'oklch(45% 0.08 145)',
+              600: 'oklch(38% 0.07 145)',
+              700: 'oklch(30% 0.06 145)',
+              800: 'oklch(24% 0.04 145)',
+              900: 'oklch(18% 0.03 145)',
+            },
+            terra: {
+              300: 'oklch(68% 0.10 45)',
+              400: 'oklch(58% 0.12 45)',
+              500: 'oklch(50% 0.13 45)',
+            },
+            linen: 'oklch(96% 0.008 80)',
+            parchment: 'oklch(93% 0.012 80)',
+            bark: {
+              DEFAULT: 'oklch(25% 0.02 60)',
+              light: 'oklch(40% 0.02 60)',
+              muted: 'oklch(55% 0.03 145)',
+            },
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Figtree', system-ui, sans-serif;
+      color: oklch(25% 0.02 60);
+      background: oklch(96% 0.008 80);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .text-display-xl { font-size: clamp(2.8rem, 5vw + 1rem, 4.5rem); line-height: 1.05; letter-spacing: -0.02em; }
+    .text-display-lg { font-size: clamp(2rem, 3.5vw + 0.5rem, 3.2rem); line-height: 1.1; letter-spacing: -0.015em; }
+    .text-display-md { font-size: clamp(1.5rem, 2vw + 0.5rem, 2.2rem); line-height: 1.15; }
+    .text-display-sm { font-size: clamp(1.2rem, 1.5vw + 0.3rem, 1.6rem); line-height: 1.25; }
+    .text-body-lg { font-size: 1.125rem; line-height: 1.65; }
+    .text-body { font-size: 1rem; line-height: 1.6; }
+    .text-body-sm { font-size: 0.875rem; line-height: 1.55; }
+    .text-caption { font-size: 0.8125rem; line-height: 1.5; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
+
+    :focus-visible { outline: 2px solid oklch(45% 0.08 145); outline-offset: 3px; border-radius: 2px; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s cubic-bezier(0.25, 1, 0.5, 1), transform 0.7s cubic-bezier(0.25, 1, 0.5, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .stagger > .reveal:nth-child(1) { transition-delay: 0ms; }
+    .stagger > .reveal:nth-child(2) { transition-delay: 80ms; }
+    .stagger > .reveal:nth-child(3) { transition-delay: 160ms; }
+    .stagger > .reveal:nth-child(4) { transition-delay: 240ms; }
+    .stagger > .reveal:nth-child(5) { transition-delay: 320ms; }
+    .stagger > .reveal:nth-child(6) { transition-delay: 400ms; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+    .menu-item { transition: background-color 0.2s cubic-bezier(0.25, 1, 0.5, 1); }
+    .menu-item:hover { background-color: oklch(93% 0.012 80); }
+
+    .nav-link { position: relative; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px; background: oklch(45% 0.08 145); transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1); }
+    .nav-link:hover::after { width: 100%; }
+
+    .divider { height: 1px; background: linear-gradient(to right, transparent, oklch(80% 0.03 145), transparent); }
+
+    .btn-primary { background: oklch(45% 0.08 145); color: oklch(96% 0.008 80); padding: 0.875rem 2rem; font-weight: 500; letter-spacing: 0.02em; transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.2s cubic-bezier(0.25, 1, 0.5, 1); }
+    .btn-primary:hover { background: oklch(38% 0.07 145); transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(1px); }
+
+    .btn-outline { border: 1.5px solid oklch(45% 0.08 145); color: oklch(45% 0.08 145); padding: 0.875rem 2rem; font-weight: 500; letter-spacing: 0.02em; transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.2s cubic-bezier(0.25, 1, 0.5, 1), color 0.2s cubic-bezier(0.25, 1, 0.5, 1); }
+    .btn-outline:hover { background: oklch(45% 0.08 145); color: oklch(96% 0.008 80); transform: translateY(-1px); }
+
+    .mobile-nav { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+    .mobile-nav.open { transform: translateX(0); }
+
+    /* Menu tab switching */
+    .menu-tab { cursor: pointer; padding: 0.5rem 1.25rem; border-radius: 2px; transition: background-color 0.2s, color 0.2s; }
+    .menu-tab.active { background: oklch(45% 0.08 145); color: oklch(96% 0.008 80); }
+    .menu-tab:not(.active):hover { background: oklch(92% 0.03 145); }
+    .menu-panel { display: none; }
+    .menu-panel.active { display: block; }
+
+    /* Subtle grain texture overlay */
+    .grain::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.035;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 256px;
+    }
+
+    /* Warm image treatment */
+    .img-warm {
+      border-radius: 10px;
+      box-shadow: 0 4px 20px oklch(25% 0.02 60 / 0.08);
+    }
+
+    /* Floating accent image */
+    .img-float {
+      border-radius: 10px;
+      box-shadow: 0 8px 30px oklch(25% 0.02 60 / 0.12);
+      transform: rotate(-2deg);
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .img-float:hover {
+      transform: rotate(0deg);
+    }
+  </style>
+</head>
+
+<body class="font-body">
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-linen backdrop-blur-sm shadow-sm" id="nav">
+    <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex-shrink-0 hover:opacity-80 transition-opacity duration-200">
+        <img src="images/logo.png" alt="Mother's Juice Cafe" class="h-12 md:h-14 w-auto">
+      </a>
+      <ul class="hidden lg:flex items-center gap-6 text-body-sm text-bark-light">
+        <li><a href="#story" class="nav-link py-1">Our Story</a></li>
+        <li><a href="#menu" class="nav-link py-1">Menu</a></li>
+        <li><a href="#cleanses" class="nav-link py-1">Cleanses</a></li>
+        <li><a href="#catering" class="nav-link py-1">Catering</a></li>
+        <li><a href="#locations" class="nav-link py-1">Locations</a></li>
+      </ul>
+      <a href="https://www.doordash.com/store/mother's-juice-cafe-bend-468970/" target="_blank" rel="noopener" class="hidden lg:inline-block btn-primary text-body-sm rounded-sm">
+        Order Online
+      </a>
+      <button id="menu-toggle" class="lg:hidden p-2 -mr-2" aria-label="Open menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </nav>
+    <div id="mobile-nav" class="mobile-nav fixed inset-y-0 right-0 w-72 bg-linen shadow-xl z-50 p-8 flex flex-col lg:hidden">
+      <button id="menu-close" class="self-end p-2 -mr-2 -mt-2 mb-8" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <ul class="flex flex-col gap-6 text-lg text-bark-light">
+        <li><a href="#story" class="mobile-nav-link hover:text-sage-500 transition-colors">Our Story</a></li>
+        <li><a href="#menu" class="mobile-nav-link hover:text-sage-500 transition-colors">Menu</a></li>
+        <li><a href="#cleanses" class="mobile-nav-link hover:text-sage-500 transition-colors">Cleanses</a></li>
+        <li><a href="#catering" class="mobile-nav-link hover:text-sage-500 transition-colors">Catering</a></li>
+        <li><a href="#locations" class="mobile-nav-link hover:text-sage-500 transition-colors">Locations</a></li>
+      </ul>
+      <a href="https://www.doordash.com/store/mother's-juice-cafe-bend-468970/" target="_blank" rel="noopener" class="mt-auto btn-primary text-center rounded-sm mobile-nav-link">Order Online</a>
+    </div>
+  </header>
+
+
+  <!-- ═══ HERO ═══ -->
+  <section class="relative min-h-[92vh] flex items-end pb-16 md:pb-24 pt-32" id="hero">
+    <div class="absolute inset-0">
+      <img src="images/location.png" alt="Fresh breakfast plate at Mother's outdoor patio in Bend, Oregon" class="w-full h-full object-cover object-center">
+      <div class="absolute inset-0 bg-gradient-to-t from-linen via-linen/50 to-linen/20"></div>
+    </div>
+    <div class="relative z-10 max-w-6xl mx-auto px-6 w-full">
+      <div class="max-w-2xl">
+        <p class="text-caption text-sage-500 mb-4 reveal">Since 1999 · Bend, Oregon</p>
+        <h1 class="font-display text-display-xl text-bark mb-6 reveal">
+          Healthy. Fresh.<br>Local. Organic.
+        </h1>
+        <p class="text-body-lg text-bark-light max-w-lg mb-8 reveal" style="max-width: 50ch;">
+          Cold-pressed juices, wholesome breakfasts, and lunches made from scratch with ingredients sourced from Central Oregon farms.
+        </p>
+        <div class="flex flex-wrap gap-4 reveal">
+          <a href="#menu" class="btn-primary rounded-sm">Explore the Menu</a>
+          <a href="#locations" class="btn-outline rounded-sm">Find Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══ ORDER ONLINE BANNER ═══ -->
+  <section class="bg-sage-600 py-3.5">
+    <div class="max-w-6xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4">
+      <p class="text-body font-semibold text-sage-50">
+        <span class="inline-block mr-2">🛵</span> Now delivering via DoorDash — order from your couch
+      </p>
+      <a href="https://www.doordash.com/store/mother's-juice-cafe-bend-468970/" target="_blank" rel="noopener" class="text-body-sm font-bold text-sage-600 bg-sage-50 px-5 py-2 rounded-sm hover:bg-white transition-colors">
+        Order Now &rarr;
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ═══ OUR STORY ═══ -->
+  <section class="py-16 md:py-24 relative grain" id="story">
+    <div class="max-w-6xl mx-auto px-6">
+      <!-- Top: intro with team photo -->
+      <div class="grid md:grid-cols-5 gap-10 md:gap-16 items-center mb-16">
+        <div class="md:col-span-3 reveal">
+          <p class="text-caption text-sage-500 mb-4">Our Story</p>
+          <h2 class="font-display text-display-lg text-bark mb-6">
+            Keep it fresh.<br>Keep it local.
+          </h2>
+          <p class="text-body-lg text-bark-light" style="max-width: 55ch;">
+            Mother's started in 1999 with a simple idea: make food the way it should be made. Fresh ingredients from local farms, recipes that nourish, and a space where the community can slow down and eat well.
+          </p>
+        </div>
+        <div class="md:col-span-2 reveal">
+          <img src="images/our-story.png" alt="Mother's Juice Cafe team" class="img-float w-full max-w-sm mx-auto">
+        </div>
+      </div>
+
+      <!-- Value columns -->
+      <div class="grid md:grid-cols-3 gap-8 md:gap-12">
+        <div class="reveal bg-parchment rounded-lg p-6">
+          <p class="text-caption text-terra-400 mb-3">Farm Partners</p>
+          <h3 class="font-display text-display-sm text-bark mb-2">18+ local farms</h3>
+          <p class="text-body-sm text-bark-light">
+            Pioneer Ranch, Agricultural Connections, Lady Bug Farms, SmithTeas, and over a dozen other Central Oregon growers.
+          </p>
+        </div>
+        <div class="reveal bg-parchment rounded-lg p-6">
+          <p class="text-caption text-terra-400 mb-3">Cold-Pressed</p>
+          <h3 class="font-display text-display-sm text-bark mb-2">3 lbs per bottle</h3>
+          <p class="text-body-sm text-bark-light">
+            Each bottle contains roughly three pounds of fresh produce. Raw, unpasteurized, rich in vitamins, minerals, and active enzymes.
+          </p>
+        </div>
+        <div class="reveal bg-parchment rounded-lg p-6">
+          <p class="text-caption text-terra-400 mb-3">From Scratch</p>
+          <h3 class="font-display text-display-sm text-bark mb-2">Baked fresh daily</h3>
+          <p class="text-body-sm text-bark-light">
+            Real, pronounceable ingredients. Granola in small batches weekly, no preservatives. Seasonal flavors that rotate with what's growing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image strip — three photos side by side -->
+  <div class="grid grid-cols-3 gap-1 reveal">
+    <div class="aspect-[4/3] overflow-hidden"><img src="images/food-bowl.jpg" alt="Fresh bowls at Mother's" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div>
+    <div class="aspect-[4/3] overflow-hidden"><img src="images/cleanse-original.jpg" alt="Cold-pressed juice bottles" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div>
+    <div class="aspect-[4/3] overflow-hidden"><img src="images/location.png" alt="Fresh breakfast on the patio" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div>
+  </div>
+
+
+  <!-- ═══ MENU ═══ -->
+  <section class="py-16 md:py-24" id="menu">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-8 items-end mb-12">
+        <div class="md:col-span-2 reveal">
+          <p class="text-caption text-sage-500 mb-4">The Menu</p>
+          <h2 class="font-display text-display-lg text-bark mb-4">Made fresh, made right</h2>
+          <p class="text-body text-bark-light" style="max-width: 55ch;">
+            All-day breakfast, lunch, cold-pressed juices, smoothies, and specialty drinks. Plenty of gluten-free, vegetarian, and vegan options.
+          </p>
+        </div>
+        <div class="reveal hidden md:block">
+          <img src="images/cafe-food.png" alt="Fresh salad bowl" class="img-float w-48 ml-auto">
+        </div>
+      </div>
+
+      <!-- Tab navigation -->
+      <div class="flex flex-wrap gap-2 mb-12 reveal" role="tablist">
+        <button class="menu-tab active text-body-sm font-medium" role="tab" aria-selected="true" data-tab="breakfast">Breakfast</button>
+        <button class="menu-tab text-body-sm font-medium text-bark-light" role="tab" aria-selected="false" data-tab="sandos">Sandos & Wraps</button>
+        <button class="menu-tab text-body-sm font-medium text-bark-light" role="tab" aria-selected="false" data-tab="bowls">Bowls & Salads</button>
+        <button class="menu-tab text-body-sm font-medium text-bark-light" role="tab" aria-selected="false" data-tab="smoothies">Smoothies</button>
+        <button class="menu-tab text-body-sm font-medium text-bark-light" role="tab" aria-selected="false" data-tab="juices">Juices</button>
+        <button class="menu-tab text-body-sm font-medium text-bark-light" role="tab" aria-selected="false" data-tab="drinks">Coffee & Drinks</button>
+      </div>
+
+      <!-- BREAKFAST -->
+      <div class="menu-panel active" id="panel-breakfast">
+        <p class="text-body-sm text-bark-muted mb-8">Served all day · Add organic egg $3</p>
+        <div class="grid md:grid-cols-2 gap-x-16 gap-y-1">
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Good Morning Sunshine</span><p class="text-body-sm text-bark-muted mt-0.5">Turkey, bacon, cheddar, cream cheese & tomato on a local bagel</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$15</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Barden Benny</span><p class="text-body-sm text-bark-muted mt-0.5">Avocado, egg, tomato, spinach, swiss & mama's chimichurri on seeded wheat</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$15</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Perfectly Sunny</span><p class="text-body-sm text-bark-muted mt-0.5">2 organic sunny side eggs over sweet potato kale hash with caramelized onions, blistered tomatoes, avocado & cilantro crème</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$16</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Avocado Toast</span><p class="text-body-sm text-bark-muted mt-0.5">Seasonal selection — ask about today's creation</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$13</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Sunrise Wrap</span><p class="text-body-sm text-bark-muted mt-0.5">2 organic eggs, spinach, tomato, bacon, cheddar cheese & avocado</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$15</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Gochu Glow</span><p class="text-body-sm text-bark-muted mt-0.5">2 organic eggs with bulgogi beef, vegan kimchi, roasted potatoes, onions & gochujang aioli</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$16</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SANDOS & WRAPS -->
+      <div class="menu-panel" id="panel-sandos">
+        <p class="text-body-sm text-bark-muted mb-8">All sandwiches available as wraps · Add organic avocado or bacon $3</p>
+        <div class="grid md:grid-cols-2 gap-x-16 gap-y-1">
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Urban Cowboy</span><p class="text-body-sm text-bark-muted mt-0.5">House braised short rib, seasonal mushrooms, caramelized onions, pickled root vegetable slaw & horseradish scallion aioli</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$18</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Mother Clucker</span><p class="text-body-sm text-bark-muted mt-0.5">Chicken, smoked gouda, tomato, pickled onions, avocado, greens & pesto on sourdough</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$17</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Turkey Everest</span><p class="text-body-sm text-bark-muted mt-0.5">Roasted turkey breast, havarti, tomato, cucumber, pickled onions, honey mustard, avocado & house greens on seeded wheat</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$17</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Bohemian Wrapsody</span><p class="text-body-sm text-bark-muted mt-0.5">Market hummus, roasted veggies, house greens & vegan pesto in your choice of wrap</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$16</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOWLS & SALADS -->
+      <div class="menu-panel" id="panel-bowls">
+        <p class="text-body-sm text-bark-muted mb-8">Add grilled chicken $6</p>
+        <h3 class="font-display text-display-sm text-bark mb-6 mt-2">Sweet Bowls</h3>
+        <div class="grid md:grid-cols-2 gap-x-16 gap-y-1 mb-12">
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Chai Oatmeal</span><p class="text-body-sm text-bark-muted mt-0.5">Steel cut oats, chia seeds, chai & hemp milk topped with fruit, almonds & maple syrup</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$13</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Sambazon Bowl</span><p class="text-body-sm text-bark-muted mt-0.5">Açaí, banana, pineapple, mango & Oregon berries topped with granola, fresh seasonal fruit, local honey & chia seeds</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$15</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Power Bowl</span><p class="text-body-sm text-bark-muted mt-0.5">Açaí, banana, peanut butter & hemp protein, topped with housemade granola, mixed fruit, hemp hearts & honey</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$15</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Matcha Made in Heaven</span><p class="text-body-sm text-bark-muted mt-0.5">Matcha, spirulina, avocado, banana & date topped with cinnamon cashew butter, granola & fresh fruit</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$15</span>
+          </div>
+        </div>
+        <h3 class="font-display text-display-sm text-bark mb-6">Savory Bowls</h3>
+        <div class="grid md:grid-cols-2 gap-x-16 gap-y-1 mb-12">
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Seoul Bowl</span><p class="text-body-sm text-bark-muted mt-0.5">Bulgogi beef or organic tofu, vegan kimchi, turmeric & ginger egg, jasmine rice with Korean chili sauce & sesame seeds</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$20</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">The Greek Freak</span><p class="text-body-sm text-bark-muted mt-0.5">Grilled chicken, cherry tomato, pickled red onion, snap peas, Castelvetrano olives, market hummus & feta</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$20</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Buddha Bowl</span><p class="text-body-sm text-bark-muted mt-0.5">Grilled salmon, roasted veggies, crispy tofu & Thai peanut sauce over rice with local microgreens</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$20</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Grains & Greens</span><p class="text-body-sm text-bark-muted mt-0.5">Organic grains, kale, spinach, arugula, caramelized onion & mushroom topped with turmeric tahini sauce</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$18</span>
+          </div>
+        </div>
+        <h3 class="font-display text-display-sm text-bark mb-6">Salads</h3>
+        <div class="grid md:grid-cols-2 gap-x-16 gap-y-1">
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Mom's Cobb Salad</span><p class="text-body-sm text-bark-muted mt-0.5">House greens, bacon, chicken, chèvre, seasonal veggies, egg & avocado with grilled lemon vinaigrette</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$18</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Avocado Caesar</span><p class="text-body-sm text-bark-muted mt-0.5">Romaine & kale tossed with vegan avocado caesar dressing, grated parmesan, capers & sourdough crips</p></div>
+            <span class="text-body text-bark-light ml-4 whitespace-nowrap">$16</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SMOOTHIES -->
+      <div class="menu-panel" id="panel-smoothies">
+        <p class="text-body-sm text-bark-muted mb-4">All organic · Performance smoothies $13.75 · Classic smoothies $11.50</p>
+        <p class="text-body-sm text-bark-muted mb-8">Add: 22oz $2 · 32oz $4 · Protein $3 · Hemp $1</p>
+        <h3 class="font-display text-display-sm text-bark mb-6">Performance Smoothies</h3>
+        <div class="grid md:grid-cols-2 gap-x-16 gap-y-1 mb-12">
+          <div class="menu-item py-3 px-3 -mx-3 rounded-sm">
+            <span class="text-body font-medium text-bark">Opal</span>
+            <p class="text-body-sm text-bark-muted mt-0.5">Orange, pineapple, peach, banana, coconut milk, ginger, turmeric, bee pollen</p>
+          </div>
+          <div class="menu-item py-3 px-3 -mx-3 rounded-sm">
+            <span class="text-body font-medium text-bark">Immune Enhancer</span>
+            <p class="text-body-sm text-bark-muted mt-0.5">Apple, banana, kale, spirulina, celery, lemon, ginger, hemp, bee pollen, coconut water</p>
+          </div>
+          <div class="menu-item py-3 px-3 -mx-3 rounded-sm">
+            <span class="text-body font-medium text-bark">Fat Burner</span>
+            <p class="text-body-sm text-bark-muted mt-0.5">Banana, avocado, pineapple, lime, hemp, bee pollen, turmeric, apple cider, fresh orange juice</p>
+          </div>
+          <div class="menu-item py-3 px-3 -mx-3 rounded-sm">
+            <span class="text-body font-medium text-bark">Chocolate Detox</span>
+            <p class="text-body-sm text-bark-muted mt-0.5">Apple, banana, chocolate, ashwagandha, probiotics, hemp, date, cinnamon, chai, oat milk</p>
+          </div>
+          <div class="menu-item py-3 px-3 -mx-3 rounded-sm">
+            <span class="text-body font-medium text-bark">Happy Hippie</span>
+            <p class="text-body-sm text-bark-muted mt-0.5">Strawberry, banana, hemp protein, açaí berries, hemp milk</p>
+          </div>
+          <div class="menu-item py-3 px-3 -mx-3 rounded-sm">
+            <span class="text-body font-medium text-bark">Hangover Helper</span>
+            <p class="text-body-sm text-bark-muted mt-0.5">Pineapple, strawberry, peach, banana, ginger, turmeric, coconut water</p>
+          </div>
+          <div class="menu-item py-3 px-3 -mx-3 rounded-sm">
+            <span class="text-body font-medium text-bark">Cashew Bliss</span>
+            <p class="text-body-sm text-bark-muted mt-0.5">Cashew butter, banana, mango, maple syrup, chai spice, turmeric, ginger, coconut milk</p>
+          </div>
+          <div class="menu-item py-3 px-3 -mx-3 rounded-sm">
+            <span class="text-body font-medium text-bark">Nuttin' Honey</span>
+            <p class="text-body-sm text-bark-muted mt-0.5">Almond butter, banana, honey, maca, dates, cinnamon, vanilla yogurt, oat milk</p>
+          </div>
+        </div>
+        <h3 class="font-display text-display-sm text-bark mb-6">Classic Smoothies</h3>
+        <div class="grid md:grid-cols-2 gap-x-16 gap-y-1">
+          <div class="menu-item py-3 px-3 -mx-3 rounded-sm">
+            <span class="text-body font-medium text-bark">Pink Lady</span>
+            <p class="text-body-sm text-bark-muted mt-0.5">Strawberry, peach, banana, mango, sorbet</p>
+          </div>
+          <div class="menu-item py-3 px-3 -mx-3 rounded-sm">
+            <span class="text-body font-medium text-bark">Rome Beauty</span>
+            <p class="text-body-sm text-bark-muted mt-0.5">Apple, cranberry, peach, mango, sorbet</p>
+          </div>
+          <div class="menu-item py-3 px-3 -mx-3 rounded-sm">
+            <span class="text-body font-medium text-bark">Tropical Fur</span>
+            <p class="text-body-sm text-bark-muted mt-0.5">Pineapple, mango, coconut, mango sorbet, coconut, fresh orange juice</p>
+          </div>
+          <div class="menu-item py-3 px-3 -mx-3 rounded-sm">
+            <span class="text-body font-medium text-bark">PB&J</span>
+            <p class="text-body-sm text-bark-muted mt-0.5">Banana, apple, vanilla yogurt, peanut butter, hemp milk</p>
+          </div>
+          <div class="menu-item py-3 px-3 -mx-3 rounded-sm">
+            <span class="text-body font-medium text-bark">Lavender</span>
+            <p class="text-body-sm text-bark-muted mt-0.5">Apple, mixed berries, banana, lavender, vanilla yogurt, hemp milk</p>
+          </div>
+          <div class="menu-item py-3 px-3 -mx-3 rounded-sm">
+            <span class="text-body font-medium text-bark">Wheat Grass</span>
+            <p class="text-body-sm text-bark-muted mt-0.5">Orange, pineapple, banana, wheat grass, ginger, fresh orange juice</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- JUICES -->
+      <div class="menu-panel" id="panel-juices">
+        <p class="text-body-sm text-bark-muted mb-8">Cold pressed · Made from local and organic ingredients · Raw, unpasteurized & rich in vitamins, minerals and active enzymes</p>
+        <div class="grid md:grid-cols-2 gap-16 items-start">
+          <div>
+            <h3 class="font-display text-display-sm text-bark mb-6">In the Cooler Case</h3>
+            <div class="space-y-1 mb-12">
+              <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+                <div><span class="text-body font-medium text-bark">Wellness</span><p class="text-body-sm text-bark-muted mt-0.5">Lemon, ginger, cayenne</p></div>
+                <span class="text-body text-bark-light ml-4">$3.50</span>
+              </div>
+              <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+                <div><span class="text-body font-medium text-bark">Sunshine</span><p class="text-body-sm text-bark-muted mt-0.5">Orange, ginger and turmeric, calories, lemon</p></div>
+              </div>
+              <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+                <div><span class="text-body font-medium text-bark">Vitality</span><p class="text-body-sm text-bark-muted mt-0.5">Apple, carrot, celery, beet, lime</p></div>
+              </div>
+              <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+                <div><span class="text-body font-medium text-bark">Wheat Grass</span><p class="text-body-sm text-bark-muted mt-0.5">Pure wheat grass shot</p></div>
+                <span class="text-body text-bark-light ml-4">$7.50</span>
+              </div>
+            </div>
+            <h3 class="font-display text-display-sm text-bark mb-6">Juiced to Order</h3>
+            <div class="space-y-1">
+              <div class="menu-item py-3 px-3 -mx-3 rounded-sm">
+                <span class="text-body font-medium text-bark">Bright Eyes</span>
+                <p class="text-body-sm text-bark-muted mt-0.5">Pineapple, orange, golden beet, celery, spinach</p>
+              </div>
+              <div class="menu-item py-3 px-3 -mx-3 rounded-sm">
+                <span class="text-body font-medium text-bark">Green Goddess</span>
+                <p class="text-body-sm text-bark-muted mt-0.5">Apple, cucumber, celery, spinach, lemon</p>
+              </div>
+              <div class="menu-item py-3 px-3 -mx-3 rounded-sm">
+                <span class="text-body font-medium text-bark">Fuel</span>
+                <p class="text-body-sm text-bark-muted mt-0.5">Beet, celery, apple, coconut water</p>
+              </div>
+              <div class="menu-item py-3 px-3 -mx-3 rounded-sm">
+                <span class="text-body font-medium text-bark">Jumpstart</span>
+                <p class="text-body-sm text-bark-muted mt-0.5">Carrot, orange, apple, lemon, beet and turmeric, ginger</p>
+              </div>
+              <div class="menu-item py-3 px-3 -mx-3 rounded-sm">
+                <span class="text-body font-medium text-bark">Cure</span>
+                <p class="text-body-sm text-bark-muted mt-0.5">Apple, celery, parsley, ginger, lemon</p>
+              </div>
+            </div>
+          </div>
+          <div class="aspect-[3/4] rounded-sm overflow-hidden">
+            <img src="images/cleanse-original.jpg" alt="Mother's cold-pressed juice bottles" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+
+      <!-- COFFEE & DRINKS -->
+      <div class="menu-panel" id="panel-drinks">
+        <p class="text-body-sm text-bark-muted mb-8">Specialty drinks · Served hot or iced</p>
+        <div class="grid md:grid-cols-2 gap-x-16 gap-y-1">
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Beet Matcha</span><p class="text-body-sm text-bark-muted mt-0.5">Beet powder, ceremonial grade matcha, maple, vanilla, steamed milk</p></div>
+            <span class="text-body text-bark-light ml-4">$6.75</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Beet Lavender Latte</span><p class="text-body-sm text-bark-muted mt-0.5">Beet powder, lavender, vanilla, steamed milk</p></div>
+            <span class="text-body text-bark-light ml-4">$6.75</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Golden Milk</span><p class="text-body-sm text-bark-muted mt-0.5">Turmeric, ginger, cinnamon, black pepper, maple, steamed milk</p></div>
+            <span class="text-body text-bark-light ml-4">$6.75</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">Mushroom Mocha</span><p class="text-body-sm text-bark-muted mt-0.5">Espresso, reishi, chaga, lion's mane, cacao, steamed milk</p></div>
+            <span class="text-body text-bark-light ml-4">$6.75</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">High Desert Mocha</span><p class="text-body-sm text-bark-muted mt-0.5">Espresso, house-made chocolate sauce, steamed milk</p></div>
+            <span class="text-body text-bark-light ml-4">$6.25</span>
+          </div>
+          <div class="menu-item flex justify-between items-baseline py-3 px-3 -mx-3 rounded-sm">
+            <div><span class="text-body font-medium text-bark">The Happy Camper</span><p class="text-body-sm text-bark-muted mt-0.5">Choice of milk, Sträus Chocolate, Fireside S'mores, Primitive Roast, Malted Hazelnut</p></div>
+            <span class="text-body text-bark-light ml-4">$6.75</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider max-w-6xl mx-auto"></div>
+
+
+  <!-- ═══ JUICE CLEANSES ═══ -->
+  <section class="py-16 md:py-24 bg-parchment relative grain" id="cleanses">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center mb-14">
+        <div class="reveal">
+          <p class="text-caption text-sage-500 mb-4">Juice Cleanses</p>
+          <h2 class="font-display text-display-lg text-bark mb-4">Reset, reboot, renew</h2>
+          <p class="text-body text-bark-light mb-4" style="max-width: 50ch;">
+            Each 3-day cleanse comes with fifteen 16oz juices — raw, unpasteurized, and packed with vitamins, minerals, and active enzymes. That's roughly three pounds of fresh produce per bottle.
+          </p>
+          <p class="text-body-sm text-bark-muted" style="max-width: 50ch;">
+            Consume at 2–3 hour intervals throughout the day. Drink at least eight glasses of filtered water alongside your juices. First-time cleansers may eat approved snacks if needed.
+          </p>
+        </div>
+        <div class="reveal aspect-[4/3] overflow-hidden img-warm">
+          <img src="images/cleanse-green.jpg" alt="Mother's All Green Juice Cleanse bottles" class="w-full h-full object-cover">
+        </div>
+      </div>
+
+      <!-- What's in the cleanse -->
+      <div class="mb-16 reveal">
+        <h3 class="font-display text-display-sm text-bark mb-6">Five juices, rotating daily</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div class="bg-linen rounded-sm p-5">
+            <p class="text-body font-medium text-bark mb-1">Green Goddess</p>
+            <p class="text-body-sm text-bark-muted">Apple, cucumber, celery, spinach, lemon, chia</p>
+          </div>
+          <div class="bg-linen rounded-sm p-5">
+            <p class="text-body font-medium text-bark mb-1">Hulk</p>
+            <p class="text-body-sm text-bark-muted">Green apple, kale, celery, lemon, broccoli, jalapeño</p>
+          </div>
+          <div class="bg-linen rounded-sm p-5">
+            <p class="text-body font-medium text-bark mb-1">Happy Belly</p>
+            <p class="text-body-sm text-bark-muted">Carrot, ginger, pineapple</p>
+          </div>
+          <div class="bg-linen rounded-sm p-5">
+            <p class="text-body font-medium text-bark mb-1">John's Juice</p>
+            <p class="text-body-sm text-bark-muted">Apple, carrot, beet, ginger, parsley, spinach</p>
+          </div>
+          <div class="bg-linen rounded-sm p-5">
+            <p class="text-body font-medium text-bark mb-1">Detox</p>
+            <p class="text-body-sm text-bark-muted">Cucumber, celery, spinach, parsley, kale, ginger, lemon</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cleanse packages with Calendly order buttons -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 stagger mb-16">
+        <div class="reveal bg-linen rounded-sm p-8 flex flex-col">
+          <h3 class="font-display text-display-sm text-bark mb-2">Original Cleanse</h3>
+          <p class="text-body-sm text-bark-muted mb-4 flex-grow">Our signature 3-day cleanse. A balanced mix of green, citrus, and root juices. 15 bottles.</p>
+          <p class="font-display text-display-md text-sage-500 mb-5">$140</p>
+          <a href="https://calendly.com/mothersjuicecafe/original" target="_blank" rel="noopener" class="btn-primary rounded-sm text-center text-body-sm">Schedule Pickup</a>
+        </div>
+        <div class="reveal bg-linen rounded-sm p-8 flex flex-col">
+          <h3 class="font-display text-display-sm text-bark mb-2">All Green Cleanse</h3>
+          <p class="text-body-sm text-bark-muted mb-4 flex-grow">3 days of pure greens. Kale, spinach, celery, cucumber — deep, focused detox. 15 bottles.</p>
+          <p class="font-display text-display-md text-sage-500 mb-5">$140</p>
+          <a href="https://calendly.com/mothersjuicecafe/all-green-cleanse" target="_blank" rel="noopener" class="btn-primary rounded-sm text-center text-body-sm">Schedule Pickup</a>
+        </div>
+        <div class="reveal bg-linen rounded-sm p-8 flex flex-col">
+          <h3 class="font-display text-display-sm text-bark mb-2">Reboot Cleanse</h3>
+          <p class="text-body-sm text-bark-muted mb-4 flex-grow">A gentler 2-day option. Perfect for first-timers or a weekend reset. 10 bottles.</p>
+          <p class="font-display text-display-md text-sage-500 mb-5">$115</p>
+          <a href="https://calendly.com/mothersjuicecafe/reboot-cleanse" target="_blank" rel="noopener" class="btn-primary rounded-sm text-center text-body-sm">Schedule Pickup</a>
+        </div>
+        <div class="reveal bg-linen rounded-sm p-8 flex flex-col">
+          <h3 class="font-display text-display-sm text-bark mb-2">Partner Cleanse</h3>
+          <p class="text-body-sm text-bark-muted mb-4 flex-grow">Two Original Cleanses — do it together. 30 bottles for two people.</p>
+          <p class="font-display text-display-md text-sage-500 mb-5">$270</p>
+          <a href="https://calendly.com/mothersjuicecafe/partner-cleanse" target="_blank" rel="noopener" class="btn-primary rounded-sm text-center text-body-sm">Schedule Pickup</a>
+        </div>
+      </div>
+
+      <!-- Pickup info -->
+      <div class="reveal bg-sage-50 rounded-sm p-8 max-w-3xl">
+        <h3 class="font-display text-display-sm text-bark mb-3">How it works</h3>
+        <ol class="text-body text-bark-light space-y-3 list-decimal list-inside">
+          <li><span class="font-medium text-bark">Choose your cleanse</span> and schedule a pickup time via Calendly. Payment is collected during booking.</li>
+          <li><span class="font-medium text-bark">Pick up your juices</span> on Wednesday, Friday, or Sunday. We need 48 hours notice minimum.</li>
+          <li><span class="font-medium text-bark">Start cleansing</span> on Thursday, Saturday, or Monday. Drink one juice every 2–3 hours, with the last one 2 hours before bed.</li>
+          <li><span class="font-medium text-bark">Ease back in</span> with salads, smoothies, soups, and gluten-free grains. Your body will thank you.</li>
+        </ol>
+        <p class="text-body-sm text-bark-muted mt-4">Shelf life is 4 days from pickup — start immediately. Drink 8+ glasses of water daily alongside your juices.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══ CATERING ═══ -->
+  <section class="py-16 md:py-24" id="catering">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
+        <div class="reveal aspect-[3/2] overflow-hidden img-warm order-2 md:order-1">
+          <img src="images/catering.png" alt="Friends enjoying a Mother's catered outdoor gathering" class="w-full h-full object-cover">
+        </div>
+        <div class="reveal order-1 md:order-2">
+          <p class="text-caption text-sage-500 mb-4">Catering</p>
+          <h2 class="font-display text-display-lg text-bark mb-6">Bring Mother's to your next gathering</h2>
+          <p class="text-body text-bark-light mb-6" style="max-width: 50ch;">
+            Any budget, any group size. Weddings, business luncheons, birthday parties — we create custom packages with the same fresh, organic, from-scratch ingredients we serve in the cafe.
+          </p>
+          <ul class="text-body text-bark-light space-y-2 mb-8">
+            <li class="flex items-start gap-2"><span class="text-sage-400 mt-1">&#9679;</span> Sunrise Wraps, Buddha Bowls, Chef's Selection platters</li>
+            <li class="flex items-start gap-2"><span class="text-sage-400 mt-1">&#9679;</span> Hormone-free, nitrite-free, nitrate-free meats</li>
+            <li class="flex items-start gap-2"><span class="text-sage-400 mt-1">&#9679;</span> Seasonal baked goods and fresh-pressed juices</li>
+          </ul>
+          <div class="flex flex-wrap gap-4">
+            <a href="tel:+15416781625" class="btn-primary rounded-sm inline-block">(541) 678-1625</a>
+            <a href="mailto:catering@mothersjuicecafe.com" class="btn-outline rounded-sm inline-block">Email Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider max-w-6xl mx-auto"></div>
+
+
+  <!-- ═══ LOCATIONS ═══ -->
+  <section class="py-16 md:py-24" id="locations">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-2xl mb-16 reveal">
+        <p class="text-caption text-sage-500 mb-4">Find Us</p>
+        <h2 class="font-display text-display-lg text-bark">Two locations in Bend</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 stagger">
+        <div class="reveal">
+          <div class="aspect-[16/9] overflow-hidden rounded-lg mb-6">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2867.5!2d-121.3295!3d44.0585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54b8c7a8e5a6e1e7%3A0x1234567890abcdef!2s1255%20NW%20Galveston%20Ave%2C%20Bend%2C%20OR%2097703!5e0!3m2!1sen!2sus!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mother's Westside location map"></iframe>
+          </div>
+          <h3 class="font-display text-display-sm text-bark mb-2">Westside</h3>
+          <address class="not-italic text-body text-bark-light space-y-1 mb-4">
+            <p>1255 NW Galveston Ave</p>
+            <p>Bend, OR 97703</p>
+            <p><a href="tel:+15413180989" class="text-sage-500 hover:text-sage-600 transition-colors">(541) 318-0989</a></p>
+          </address>
+          <p class="text-body-sm text-bark-muted"><span class="font-medium text-bark">Open daily</span> · 8am – 3pm</p>
+        </div>
+        <div class="reveal">
+          <div class="aspect-[16/9] overflow-hidden rounded-lg mb-6">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2867.5!2d-121.2845!3d44.0525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54b8c7a8e5a6e1e8%3A0xabcdef1234567890!2s62090%20Dean%20Swift%20Rd%2C%20Bend%2C%20OR%2097701!5e0!3m2!1sen!2sus!4v1700000000001" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mother's Eastside location map"></iframe>
+          </div>
+          <h3 class="font-display text-display-sm text-bark mb-2">Eastside</h3>
+          <address class="not-italic text-body text-bark-light space-y-1 mb-4">
+            <p>62090 Dean Swift Road</p>
+            <p>Bend, OR 97701</p>
+            <p><a href="tel:+15416476880" class="text-sage-500 hover:text-sage-600 transition-colors">(541) 647-6880</a></p>
+          </address>
+          <p class="text-body-sm text-bark-muted"><span class="font-medium text-bark">Mon – Fri</span> · 8am – 3pm</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══ SOCIAL PROOF ═══ -->
+  <section class="py-16 bg-parchment">
+    <div class="max-w-6xl mx-auto px-6 text-center reveal">
+      <p class="text-display-md font-display text-bark mb-2">4.4 out of 5</p>
+      <p class="text-body text-bark-muted">Based on 300+ reviews on Trustpilot</p>
+    </div>
+  </section>
+
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="bg-sage-800 text-sage-200 py-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
+        <div class="md:col-span-2">
+          <p class="font-display text-display-sm text-sage-100 mb-4">Mother's Juice Cafe</p>
+          <p class="text-body-sm text-sage-300" style="max-width: 35ch;">
+            Locally owned and all organic since 1999. Honest, wholesome food for a happy, healthy life. Feeding Bend with fresh, from-scratch food — no shortcuts.
+          </p>
+        </div>
+        <div>
+          <p class="text-caption text-sage-400 mb-4">Hours</p>
+          <div class="text-body-sm text-sage-300 space-y-2">
+            <p><span class="text-sage-200">Westside</span> — Daily, 8am–3pm</p>
+            <p><span class="text-sage-200">Eastside</span> — Mon–Fri, 8am–3pm</p>
+          </div>
+        </div>
+        <div>
+          <p class="text-caption text-sage-400 mb-4">Connect</p>
+          <div class="text-body-sm text-sage-300 space-y-2">
+            <p><a href="https://www.instagram.com/mothersjuicecafe/" class="hover:text-sage-100 transition-colors" target="_blank" rel="noopener">Instagram</a></p>
+            <p><a href="https://www.facebook.com/MothersCafeBend/" class="hover:text-sage-100 transition-colors" target="_blank" rel="noopener">Facebook</a></p>
+            <p><a href="https://www.doordash.com/store/mother's-juice-cafe-bend-468970/" class="hover:text-sage-100 transition-colors" target="_blank" rel="noopener">Order on DoorDash</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="divider mb-8" style="background: linear-gradient(to right, transparent, oklch(35% 0.04 145), transparent);"></div>
+      <p class="text-body-sm text-sage-400 text-center">&copy; 2026 Mother's Juice Cafe. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <!-- ═══ SCRIPTS ═══ -->
+  <script>
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Menu tabs
+    document.querySelectorAll('.menu-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.menu-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+        document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Mobile nav
+    const toggle = document.getElementById('menu-toggle');
+    const closeBtn = document.getElementById('menu-close');
+    const mobileNav = document.getElementById('mobile-nav');
+    toggle.addEventListener('click', () => { mobileNav.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); closeBtn.focus(); });
+    closeBtn.addEventListener('click', () => { mobileNav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); toggle.focus(); });
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => { mobileNav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); });
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileNav.classList.contains('open')) { mobileNav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); toggle.focus(); }
+    });
+
+    // Nav border on scroll
+    const nav = document.getElementById('nav');
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(() => { nav.style.borderBottom = window.scrollY > 50 ? '1px solid oklch(88% 0.02 145)' : 'none'; ticking = false; }); ticking = true; }
+    });
+  </script>
+
+</body>
+</html>

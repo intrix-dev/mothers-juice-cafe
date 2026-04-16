@@ -103,6 +103,18 @@
       visibility: visible !important;
     }
     .mobile-nav.open { transform: translateX(0); }
+    .mobile-menu-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: oklch(25% 0.02 60);
+      background: oklch(96% 0.008 80 / 0.92);
+      border: 1px solid oklch(85% 0.04 145);
+      border-radius: 6px;
+      min-width: 44px;
+      min-height: 44px;
+      box-shadow: 0 2px 10px oklch(25% 0.02 60 / 0.06);
+    }
     .mobile-nav * {
       opacity: 1 !important;
       visibility: visible !important;
@@ -196,13 +208,13 @@
       <a href="https://www.doordash.com/store/mother's-juice-cafe-bend-468970/" target="_blank" rel="noopener" class="hidden lg:inline-block btn-primary text-body-sm rounded-sm">
         Order Online
       </a>
-      <button id="menu-toggle" class="lg:hidden p-2 -mr-2" aria-label="Open menu" aria-expanded="false">
+      <button id="menu-toggle" class="mobile-menu-button lg:hidden p-2 -mr-2" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </nav>
     <div id="mobile-nav-overlay" class="mobile-nav-overlay lg:hidden" aria-hidden="true"></div>
     <div id="mobile-nav" class="mobile-nav fixed inset-y-0 right-0 w-72 max-w-[85vw] overflow-y-auto bg-linen shadow-xl z-50 p-8 flex flex-col lg:hidden" aria-hidden="true">
-      <button id="menu-close" class="self-end p-2 -mr-2 -mt-2 mb-8" aria-label="Close menu">
+      <button id="menu-close" class="mobile-menu-button self-end p-2 -mr-2 -mt-2 mb-8" aria-label="Close menu">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
       <ul class="flex flex-col gap-6 text-lg text-bark-light">

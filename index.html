@@ -121,12 +121,15 @@
     .mobile-nav * {
       opacity: 1 !important;
       visibility: visible !important;
+      -webkit-text-fill-color: currentColor !important;
     }
     .mobile-nav ul,
     .mobile-nav li,
     .mobile-nav a,
     .mobile-nav button,
-    .mobile-nav .btn-primary {
+    .mobile-nav .btn-primary,
+    .mobile-nav svg,
+    .mobile-nav line {
       transform: none !important;
       filter: none !important;
     }
@@ -137,10 +140,23 @@
       font-size: 1.125rem;
       line-height: 1.4;
       padding: 0.375rem 0;
-      color: oklch(25% 0.02 60) !important;
+      color: #3f3a33 !important;
+      text-shadow: none !important;
+      mix-blend-mode: normal !important;
+      font-weight: 500;
     }
-    .mobile-nav .mobile-nav-link:hover {
-      color: oklch(45% 0.08 145) !important;
+    .mobile-nav .mobile-nav-link:hover,
+    .mobile-nav .mobile-nav-link:focus,
+    .mobile-nav .mobile-nav-link:active {
+      color: #5a7b55 !important;
+    }
+    .mobile-nav ul {
+      position: relative;
+      z-index: 2;
+    }
+    .mobile-nav li {
+      position: relative;
+      z-index: 2;
     }
     .mobile-nav-overlay {
       position: fixed;

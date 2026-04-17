@@ -96,14 +96,12 @@
     .btn-outline { border: 1.5px solid oklch(45% 0.08 145); color: oklch(45% 0.08 145); padding: 0.875rem 2rem; font-weight: 500; letter-spacing: 0.02em; transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.2s cubic-bezier(0.25, 1, 0.5, 1), color 0.2s cubic-bezier(0.25, 1, 0.5, 1); }
     .btn-outline:hover { background: oklch(45% 0.08 145); color: oklch(96% 0.008 80); transform: translateY(-1px); }
     .mobile-menu-button { align-items: center; justify-content: center; color: #3f3a33; background: rgba(246, 243, 237, 0.96); border: 1px solid #d7d0c4; border-radius: 6px; min-width: 44px; min-height: 44px; box-shadow: 0 2px 10px rgba(63, 58, 51, 0.06); }
-    .mobile-accordion { background: #f6f3ed; border-top: 1px solid #e6e0d7; }
-    .mobile-accordion summary { list-style: none; cursor: pointer; }
-    .mobile-accordion summary::-webkit-details-marker { display: none; }
-    .mobile-accordion[open] summary { border-bottom: 1px solid #e6e0d7; }
-    .mobile-accordion .mobile-nav-link { display: block; width: 100%; padding: 1rem 1.5rem; font-size: 1.05rem; line-height: 1.35; color: #3f3a33; font-weight: 500; border-bottom: 1px solid #e6e0d7; }
-    .mobile-accordion .mobile-nav-link:hover, .mobile-accordion .mobile-nav-link:focus, .mobile-accordion .mobile-nav-link:active { color: #5a7b55; background: #efebe3; }
-    .mobile-accordion .mobile-order-link { display: block; margin: 1rem 1.5rem 1.5rem; }
-    @media (min-width: 1024px) { #menu-toggle, #mobile-dropdown, #mobile-accordion { display: none !important; } }
+    #mobile-nav { background: #f6f3ed; border-top: 1px solid #e6e0d7; overflow: hidden; max-height: 0; transition: max-height 0.3s ease-out; }
+    #mobile-nav.open { max-height: 500px; transition: max-height 0.35s ease-in; }
+    #mobile-nav .mobile-nav-link { display: block; width: 100%; padding: 1rem 1.5rem; font-size: 1.05rem; line-height: 1.35; color: #3f3a33; font-weight: 500; border-bottom: 1px solid #e6e0d7; }
+    #mobile-nav .mobile-nav-link:hover, #mobile-nav .mobile-nav-link:focus, #mobile-nav .mobile-nav-link:active { color: #5a7b55; background: #efebe3; }
+    #mobile-nav .mobile-order-link { display: block; margin: 1rem 1.5rem 1.5rem; }
+    @media (min-width: 1024px) { #menu-toggle, #mobile-nav { display: none !important; } }
 
     /* Menu tab switching */
     .menu-tab { cursor: pointer; padding: 0.5rem 1.25rem; border-radius: 2px; transition: background-color 0.2s, color 0.2s; }
@@ -164,17 +162,14 @@
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </nav>
-    <details id="mobile-accordion" class="mobile-accordion lg:hidden">
-      <summary class="sr-only">Menu</summary>
-      <div>
-        <a href="#story" class="mobile-nav-link">Our Story</a>
-        <a href="#menu" class="mobile-nav-link">Menu</a>
-        <a href="#cleanses" class="mobile-nav-link">Cleanses</a>
-        <a href="#catering" class="mobile-nav-link">Catering</a>
-        <a href="#locations" class="mobile-nav-link">Locations</a>
-        <a href="https://www.doordash.com/store/mother's-juice-cafe-bend-468970/" target="_blank" rel="noopener" class="mobile-order-link btn-primary text-center rounded-sm">Order Online</a>
-      </div>
-    </details>
+    <div id="mobile-nav" class="lg:hidden">
+      <a href="#story" class="mobile-nav-link">Our Story</a>
+      <a href="#menu" class="mobile-nav-link">Menu</a>
+      <a href="#cleanses" class="mobile-nav-link">Cleanses</a>
+      <a href="#catering" class="mobile-nav-link">Catering</a>
+      <a href="#locations" class="mobile-nav-link">Locations</a>
+      <a href="https://www.doordash.com/store/mother's-juice-cafe-bend-468970/" target="_blank" rel="noopener" class="mobile-order-link btn-primary text-center rounded-sm">Order Online</a>
+    </div>
   </header>
 
 
@@ -777,19 +772,23 @@
         document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
       });
     });
-    // Mobile nav: hamburger button toggles the <details> accordion
+    // Mobile nav: hamburger button toggles menu with animation
     const menuToggle = document.getElementById('menu-toggle');
-    const mobileAccordion = document.getElementById('mobile-accordion');
-    if (menuToggle && mobileAccordion) {
+    const mobileNav = document.getElementById('mobile-nav');
+    if (menuToggle && mobileNav) {
+      const hamburgerSVG = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+      const closeSVG = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>';
       menuToggle.addEventListener('click', () => {
-        mobileAccordion.open = !mobileAccordion.open;
-        menuToggle.setAttribute('aria-expanded', mobileAccordion.open);
+        const isOpen = mobileNav.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', isOpen);
+        menuToggle.innerHTML = isOpen ? closeSVG : hamburgerSVG;
       });
       // Close menu when a nav link is clicked
-      mobileAccordion.querySelectorAll('a[href^="#"]').forEach(link => {
+      mobileNav.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', () => {
-          mobileAccordion.open = false;
+          mobileNav.classList.remove('open');
           menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.innerHTML = hamburgerSVG;
         });
       });
     }

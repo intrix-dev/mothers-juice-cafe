@@ -102,7 +102,10 @@
       opacity: 1 !important;
       visibility: visible !important;
     }
-    .mobile-nav.open { transform: translateX(0); }
+    .mobile-nav.open {
+      display: flex !important;
+      transform: translateX(0);
+    }
     .mobile-menu-button {
       display: inline-flex;
       align-items: center;
@@ -149,6 +152,7 @@
       z-index: 45;
     }
     .mobile-nav-overlay.open {
+      display: block !important;
       opacity: 1;
       pointer-events: auto;
     }
@@ -208,12 +212,12 @@
       <a href="https://www.doordash.com/store/mother's-juice-cafe-bend-468970/" target="_blank" rel="noopener" class="hidden lg:inline-block btn-primary text-body-sm rounded-sm">
         Order Online
       </a>
-      <button id="menu-toggle" class="mobile-menu-button lg:hidden p-2 -mr-2" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <button id="menu-toggle" class="mobile-menu-button p-2 -mr-2 lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav" style="display:flex;">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </nav>
-    <div id="mobile-nav-overlay" class="mobile-nav-overlay lg:hidden" aria-hidden="true"></div>
-    <div id="mobile-nav" class="mobile-nav fixed inset-y-0 right-0 w-72 max-w-[85vw] overflow-y-auto bg-linen shadow-xl z-50 p-8 flex flex-col lg:hidden" aria-hidden="true">
+    <div id="mobile-nav-overlay" class="mobile-nav-overlay hidden lg:hidden" aria-hidden="true"></div>
+    <div id="mobile-nav" class="mobile-nav fixed inset-y-0 right-0 w-72 max-w-[85vw] overflow-y-auto bg-linen shadow-xl z-50 p-8 hidden flex-col lg:hidden" aria-hidden="true">
       <button id="menu-close" class="mobile-menu-button self-end p-2 -mr-2 -mt-2 mb-8" aria-label="Close menu">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
@@ -835,7 +839,9 @@
     const mobileNav = document.getElementById('mobile-nav');
     const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
     const setMobileNavState = (isOpen) => {
+      mobileNav.classList.toggle('hidden', !isOpen);
       mobileNav.classList.toggle('open', isOpen);
+      mobileNavOverlay.classList.toggle('hidden', !isOpen);
       mobileNavOverlay.classList.toggle('open', isOpen);
       mobileNav.setAttribute('aria-hidden', String(!isOpen));
       mobileNavOverlay.setAttribute('aria-hidden', String(!isOpen));
